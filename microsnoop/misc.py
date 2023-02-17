@@ -1,11 +1,5 @@
 import argparse
 import os
-import numpy as np
-import pandas as pd
-import scipy
-from scellseg.io import imread
-from skimage.measure import regionprops
-from tqdm import tqdm
 
 
 def get_embed_args_parser():
@@ -18,11 +12,11 @@ def get_embed_args_parser():
     # 1. Model parameters
     parser.add_argument('--model_name', default='mae-vit-large-patch16', type=str, metavar='MODEL',
                         help='Name of model to train')
-    parser.add_argument('--input_size', default=112, type=int,
+    parser.add_argument('--input_size', default=224, type=int,
                         help='images input size')
     parser.add_argument('--in_chans', default=1, type=int,
                         help='images input chans')
-    parser.add_argument('--embed_dim', default=1024, type=int,
+    parser.add_argument('--embed_dim', default=256, type=int,
                         help='images embed dim')
     parser.add_argument('--patch_size', default=16, type=int,
                         help='images patch size')

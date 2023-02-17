@@ -5,11 +5,11 @@
 import os
 import sys
 import numpy as np
-import pandas as pd
 import cv2 as cv
+import pandas as pd
 from microsnoop.models.models_utils import *
-import timm.optim.optim_factory as optim_factory
-from microsnoop.models.models_utils import NativeScalerWithGradNormCount as NativeScaler
+import time
+
 
 try:
     import torch
@@ -49,7 +49,7 @@ class CoreModel():
 
         global_rank = get_rank()
 
-        # batch跑图
+        # for each batch
         embeddings, ys, chans, codes = None, None, None, None
         self.net.eval()
         start_time = time.time()

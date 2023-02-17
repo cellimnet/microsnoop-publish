@@ -13,28 +13,20 @@ def crop_inst(X, M, mode='bbox', meta=None,
               crop_to_sta=False,
               rsc_crop=False, rsc_crop_ratio=2.5):
     """
-    # 这里切好之后理论上就不动了，后面扩增只使用random_rotate_and_resize就行了
-    # 每张切出来的全部混在一个列表里，不再给单张图片单独给一个列表
     # asset channel last
     # crop inst using bbox or mask mode
 
-    crop_one：目前只在训练时使用，每次只随机分割一个细胞
-    sta, oversize_to_sta, crop_step：分割过程参数
-    rsc_crop, rsc_crop_ratio: 根据bbox找到中心点坐标,分割的长度根据bbox长度和rsc_crop_ratio求得
-        -> crop_to_sta（用于控制将提供的分割的长度设置为sta;若打开,则crop_centroids_size无效）
-
-    可以裁切的模式：
-        1. X多通道，M单通道
-        2. X单通道，M单通道
-        3. X多通道，M多通道，默认使用第一维
-        4. 增加了根据mask放缩裁切的模式：此模式自动转为bbox裁切模式，用于根据提供mask进行缩放范围，可以包含一定程度的细胞微环境
+    crop_one：used in training process
+    sta, oversize_to_sta, crop_step：used in cell region crop mode
+    rsc_crop, rsc_crop_ratio: The centroid coordinates are calculated from the bbox, the length of the split is calculated from the bbox length and the rsc_crop_ratio
+        -> crop_to_sta（Used to control setting the length of the supplied split to sta; if on, crop_centroids_size is invalid）
     """
     nimg = len(X)
     imgs = []
     masks = []
     metas = {'bbox': []}
 
-    for i in range(nimg):  # 对于每一张图片
+    for i in range(nimg):
         maski = M[i]
         imgi = X[i]
         assert maski.ndim==2, "Please only choose the channel with biggest mask of one instance" \
@@ -42,17 +34,17 @@ def crop_inst(X, M, mode='bbox', meta=None,
                               "cyto channel to get the whole cell instance"
 
         inst_list = np.unique(maski)
-        inst_list = np.setdiff1d(inst_list, np.array([0])) # 去除0值
+        inst_list = np.setdiff1d(inst_list, np.array([0]))
 
         if crop_one:
             continue_choose_flag = True
-            if len(inst_list) < 1: # 排除没有单细胞的情况，防止死循环
+            if len(inst_list) < 1:
                 continue_choose_flag = False
             while continue_choose_flag:
                 j = np.random.choice(inst_list, 1)[0]
                 maski_ = np.zeros_like(maski)
                 maski_[maski == j] = 1
-                bbox = find_inst_bbox(maski, j)  # 拿到bbox
+                bbox = find_inst_bbox(maski, j)  # get bbox
                 if bbox[0] == 0 or bbox[1] == 0 or bbox[2] == maski_.shape[0] or bbox[3] == maski_.shape[1]:
                     continue_choose_flag = True
                 else:
@@ -68,7 +60,7 @@ def crop_inst(X, M, mode='bbox', meta=None,
                         else:
                             crop_size = crop_size * rsc_crop_ratio
                         crop_size_thred = sta // 2
-                        if not oversize_to_sta:  # 如果不把大的图片放缩的话，就切一部分
+                        if not oversize_to_sta:
                             if crop_size > crop_size_thred: crop_size = crop_size_thred
                         bbox[0] = max(int(crop_center_r - crop_size), 0)
                         bbox[1] = max(int(crop_center_c - crop_size), 0)
@@ -76,15 +68,13 @@ def crop_inst(X, M, mode='bbox', meta=None,
                         bbox[3] = min(int(crop_center_c + crop_size), maski_.shape[1])
                     imgs, masks, metas = _crop_instij(i, imgs, masks, metas, mode, imgi, maski_, meta, bbox, sta, oversize_to_sta)
         else:
-            if len(inst_list)>0:  # 有一个细胞都算进去
+            if len(inst_list)>0:
                 use_crop_step = crop_step
-                # if len(props) < 50: use_crop_step = 1  # 如果数量少于50个，就不挑选
-                for j in inst_list[::use_crop_step]:  # 对于每一个实例
+                for j in inst_list[::use_crop_step]:
                     maski_ = np.zeros_like(maski)
                     maski_[maski == j] = 1
-                    bbox = find_inst_bbox(maski, j)  # 拿到bbox
+                    bbox = find_inst_bbox(maski, j)  # get bbox
                     if bbox[0] == 0 or bbox[1] == 0 or bbox[2] == maski_.shape[0] or bbox[3] == maski_.shape[1]:
-                        # 去掉边缘的
                         continue
                     else:
                         if rsc_crop:
@@ -98,7 +88,7 @@ def crop_inst(X, M, mode='bbox', meta=None,
                             else:
                                 crop_size = crop_size * rsc_crop_ratio
                             crop_size_thred = sta // 2
-                            if not oversize_to_sta:  # 如果不把大的图片放缩的话，就切一部分
+                            if not oversize_to_sta:
                                 if crop_size > crop_size_thred: crop_size = crop_size_thred
                             bbox[0] = max(int(crop_center_r - crop_size), 0)
                             bbox[1] = max(int(crop_center_c - crop_size), 0)
@@ -110,7 +100,7 @@ def crop_inst(X, M, mode='bbox', meta=None,
 
 def _crop_instij(i, imgs, masks, metas, mode, imgi, maski_, meta, bbox, sta, oversize_to_sta):
     """
-        从图像i中切出一个实例j并添加到imgs, masks, metas中
+    Crop an instance j from image i and add it to imgs, masks, metas
     """
     imgi_inst_0 = []
     if imgi.ndim == 2:
@@ -125,12 +115,11 @@ def _crop_instij(i, imgs, masks, metas, mode, imgi, maski_, meta, bbox, sta, ove
             print("Wrong crop mode provided, will use mask mode，You can choose mask or bbox mode when restarting")
             imgi_inst_ci = imgi[..., c][bbox[0]:bbox[2], bbox[1]:bbox[3]] * maski_[bbox[0]:bbox[2],
                                                                             bbox[1]:bbox[3]]  # bbox
-        imgi_inst_0.append(imgi_inst_ci)  # 此时channel first
+        imgi_inst_0.append(imgi_inst_ci)  # channel first
     if mode.lower() == 'mask':  # crop inst using mask
         maski_inst = maski_[bbox[0]:bbox[2], bbox[1]:bbox[3]]
-    # 这里有个问题是只取这个实例的mask，还是把所有的一股脑都切出来
     _, shape_0, shape_1 = np.array(imgi_inst_0).shape  # (c, h, w)
-    if oversize_to_sta:  # 如果比sta大，则把长边resize到sta, 否则后面就会被舍弃掉
+    if oversize_to_sta:
         shape_max = max(shape_0, shape_1)
         if shape_max > sta:
             rescale = sta / shape_max
@@ -139,7 +128,7 @@ def _crop_instij(i, imgs, masks, metas, mode, imgi, maski_, meta, bbox, sta, ove
             shape_1 = min(int(rescale * shape_1), sta)
             for imgi_inst_ci in imgi_inst_0:
                 imgi_inst_ci_ = cv2.resize(imgi_inst_ci, (shape_1, shape_0), interpolation=cv2.INTER_LINEAR)
-                imgi_inst_1.append(imgi_inst_ci_) # 这里resize时的shape是反的
+                imgi_inst_1.append(imgi_inst_ci_)
             if mode.lower() == 'mask':  # crop inst using mask
                 maski_inst = cv2.resize(maski_inst, (shape_1, shape_0), interpolation=cv2.INTER_NEAREST)
         else:
@@ -153,7 +142,7 @@ def _crop_instij(i, imgs, masks, metas, mode, imgi, maski_, meta, bbox, sta, ove
     add_1 = sta - shape_1
     add_1_l = add_1 // 2
     add_1_r = add_1 - add_1_l
-    if add_0 >= 0 and add_1 >= 0:  # 只能保存长宽比sta更小的
+    if add_0 >= 0 and add_1 >= 0:
         if meta is not None:
             meta_keys = [key for key in meta.keys()]
             for key in meta_keys:

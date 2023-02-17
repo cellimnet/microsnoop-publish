@@ -9,9 +9,9 @@ class CNN_encoder(nn.Module):
         nbase = [in_chans] + depths
         self.downsample = CNN_downsample(nbase, sz=sz, residual_on=residual_on)
 
-    def forward(self, x, mask_ratio=None):
+    def forward(self, x, mask_ratio=None):  # 'mask_ratio': to harmonise with the vit model
         embeddings = self.downsample(x)
-        mask = None  # 为了和其他模型格式统一
+        mask = None  # to harmonise with the vit model
         return embeddings, mask
 
 class CNN_decoder(nn.Module):

@@ -1,14 +1,10 @@
-import datetime
-from sklearn import preprocessing
-import numpy as np
 import pandas as pd
 import scipy.stats as stats
 import faiss
 import os, sys
-import h5py
 from tqdm import trange
 project_path = os.path.abspath(os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + os.path.sep + ".")
-sys.path.append(project_path)  # 从命令行运行需要添加这个
+sys.path.append(project_path)
 from microsnoop.models.modelzoo import *
 from microsnoop.datasets.datasets_utils import resize_image, square_image, normalize_img
 from microsnoop.models.models_utils import reshape_data, pop_nan_data
@@ -16,14 +12,15 @@ from microsnoop.postprocess.aggregate import aggregate_sc_data
 import torch.multiprocessing as mp
 import warnings
 warnings.filterwarnings("ignore")
-from sklearn.neural_network import MLPClassifier
-from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import f1_score
-from imblearn.over_sampling import BorderlineSMOTE
+
 
 # faiss kNN Implementation
 class FaissKNeighbors:
-    """Efficient kNN Implementation using faiss library, following scikit-learn
+    """
+    # refer to https://github.com/stan-hua/CytoImageNet
+
+    Efficient kNN Implementation using faiss library, following scikit-learn
     conventions.
 
     Modified from a TowardsDataScience article.
@@ -84,12 +81,14 @@ class FaissKNeighbors:
         return dist, ind
 
 class EvalProcedure:
-    """Abstract ValidationProcedure Class. Meant to serve as a base for subclasses for evaluation datasets.
+    """
+    # refer to https://github.com/stan-hua/CytoImageNet
 
+    Abstract ValidationProcedure Class. Meant to serve as a base for subclasses for evaluation datasets.
     Generally, the same procedure is taken for all evaluation sets:
-        1. Create Image Generators for each channel.  # 生成图像数据流
-        2. Extract embeddings based on specific preprocessing method.  # 基于特殊的预处理方法提取特征
-        3. Classify using k-Nearest Neighbors.  # 使用KNN进行分类
+        1. Create Image Generators for each channel.
+        2. Extract embeddings based on specific preprocessing method
+        3. Classify using k-Nearest Neighbors.
         4. Save results.
     """
 
@@ -114,11 +113,12 @@ class EvalProcedure:
     def extract_embeddings(self, dataset_name, data_loader, checkpoint_path, args, model_type='vit', rsc_to_diam=1.0, rescale_to_input=True,
                            tile=False, tile_overlap=0.1, tile_size=224, tile_rate=1.0, normalize=True):
         """
-        用于生成评估数据集的embedding，把embedding文件单独保存出来以供后续分析使用
+        Generate and save embeddings
         model_type: cnn
         assert channel first
         """
         # set distributed mode
+        print('Now processing:', dataset_name)
         args.ngpu = torch.cuda.device_count()
         args.world_size = args.ngpu * args.nnode
         print(">>>> Totally GPU Devices: ", str(args.world_size))
@@ -136,13 +136,13 @@ class EvalProcedure:
             # print('['+str(i+1)+']:', data_root, len(data))
             args.name_meta = name_meta
             if imgs[0].ndim == 2:
-                imgs = [imgi[np.newaxis, :, :] for imgi in imgs]  # 灰度图的话，在前面添加一维
+                imgs = [imgi[np.newaxis, :, :] for imgi in imgs]
             X = np.array(imgs)
-            n, c, h, w = X.shape  # Note: 前面要统一好，这里拿到的图片
-            X = X.reshape(n * c // args.in_chans, args.in_chans, h, w)  # 对每个通道进行处理，reshape之后，同一张图片的几个通道是靠在一起的
+            n, c, h, w = X.shape
+            X = X.reshape(n * c // args.in_chans, args.in_chans, h, w)
             y = np.expand_dims(inds, 0).repeat(c, axis=1)
             chan = np.zeros_like(y)
-            for ci in range(c): chan[:, ci::c] = ci  # 保存通道信息，方便后面恢复
+            for ci in range(c): chan[:, ci::c] = ci
             y = y.reshape(n * c, )
             chan = chan.reshape(n * c, )
             y, chan = y[::args.in_chans], chan[::args.in_chans]
@@ -152,28 +152,25 @@ class EvalProcedure:
                 X = square_image(X)
                 X = resize_image(X, xy=(args.input_size, args.input_size))
             else:
-                X = resize_image(X, rsc=rsc_to_diam)  # Note: 根据diam计算的rsc_to_diam来resize
+                X = resize_image(X, rsc=rsc_to_diam)  # Note: resize images
                 _, flag_y, flag_x = X[0].shape
                 flag_y_max = np.array([X[i].shape[1] for i in range(len(X))]).max()
                 flag_x_max = np.array([X[i].shape[2] for i in range(len(X))]).max()
-                if flag_y_max > args.input_size or flag_x_max > args.input_size: tile=True  # Note: 如果resize之后还是比网络输入大, 需要使用tile模式。
+                if flag_y_max > args.input_size or flag_x_max > args.input_size: tile=True
 
             if not tile:
-                X = pad_image(X, xy=[args.input_size, args.input_size])  # Note 2: pad到网络输入的大小
+                X = pad_image(X, xy=[args.input_size, args.input_size])  # Note: pad images
                 if normalize:
-                    X = [normalize_img(X[i], axis=0) for i in range(len(X))]  # Note 3: 放在resize之后做归一化
+                    X = [normalize_img(X[i], axis=0) for i in range(len(X))]  # Note: normalize images
             else:
                 print('>>>> Using tile mode')
-                X = [X[i] for i in range(len(X))]  # 不加这一行会报错（OverflowError: cannot serialize a bytes object larger than 4 GiB）
+                X = [X[i] for i in range(len(X))]
             mp.spawn(model.embed,
                      args=(X, y, chan, args, model_type, tile, tile_overlap, tile_size, tile_rate, normalize),
                      nprocs=args.world_size,
-                     join=True)  # 第一个参数相当于是由mp提供的. 只有一个GPU跑不通这个脚本
+                     join=True)
 
     def load_embeddings(self, embed_dir, filter_str=None):
-        """
-        :param filter_str: 必须包含的字符
-        """
         embeddings, inds, chans = [], [], []
         use_embed_paths = []
         embed_paths = os.listdir(embed_dir)
@@ -189,7 +186,7 @@ class EvalProcedure:
             inds.extend(embeddings_file['inds'][:])
             chans.extend(embeddings_file['chans'][:])
 
-        # 对embeddings进行排序，首先把同一张图片排到一起，然后根据通道排序
+        # sort embeddings
         df = pd.DataFrame({'embeddings': embeddings, 'inds': inds, 'chans': chans})
         df = df.sort_values(by=['inds', 'chans'])
         embeddings = df['embeddings'].tolist()
@@ -232,24 +229,24 @@ class EvalProcedure:
             train_X = np.array(train_X)
             train_y = np.array(train_y)
 
-        label_inds = np.unique(test_y)  # 一共有几种类别
+        label_inds = np.unique(test_y)
         if label_map is not None: nclass = len(label_map)
-        correct_by_class = np.zeros(nclass, dtype=np.uint32)  #
-        total_by_class = np.zeros(nclass, dtype=np.uint32)  #
+        correct_by_class = np.zeros(nclass, dtype=np.uint32)
+        total_by_class = np.zeros(nclass, dtype=np.uint32)
         correct = 0.0
         total = 0.0
 
-        # 构建模型并训练，Fit on the training set, if specified. Else, fit on the test set.
-        knn_model = FaissKNeighbors(k=k, metric=dist_metric)  # 构建模型
+        # Fit on the training set, if specified. Else, fit on the test set.
+        knn_model = FaissKNeighbors(k=k, metric=dist_metric)
         if train_X is not None:
-            knn_model.fit(train_X, train_y)  # 模型训练
+            knn_model.fit(train_X, train_y)
         else:
             knn_model.fit(test_X, test_y)
 
         predicts = []
-        # 找到每个点的最近邻，Iterate through each sample. Match to existing samples.
-        for i in trange(len(test_X)):  # 对于每张图片
-            # Ignore duplicate point if kNN fitted on test set， 因为肯定会找到自己，所以k+1
+        # Iterate through each sample. Match to existing samples.
+        for i in trange(len(test_X)):
+            # Ignore duplicate point if kNN fitted on test set
             if train_y is None:
                 neigh_dist, neigh_ind = knn_model.kneighbors([test_X[i, :]],
                                                              n_neighbors=k + 1)
@@ -260,19 +257,18 @@ class EvalProcedure:
                 neigh_dist, neigh_ind = knn_model.kneighbors([test_X[i, :]],
                                                              n_neighbors=k)
                 # remove outer list
-                neigh_dist = neigh_dist[0]  # 最近的几个点的距离
-                neigh_ind = neigh_ind[0]  # 最近的几个点的索引
-                neigh_labels = train_y[neigh_ind]  # 最近的几个点的标签
+                neigh_dist = neigh_dist[0]
+                neigh_ind = neigh_ind[0]
+                neigh_labels = train_y[neigh_ind]
 
-            # 记录结果
             predicted = 0
             # if only one value predicted
             if isinstance(neigh_labels, int):
                 predicted = neigh_labels
-            # elif more than one non-unique label, get mode 有一类标签超过两个，取众数
+            # elif more than one non-unique label, get mode
             elif len(np.unique(neigh_labels)) < len(neigh_labels):
                 predicted = stats.mode(neigh_labels)[0][0]
-            # else, take the label of the closest point  否则，选择最近点的标签
+            # else, take the label of the closest point
             else:
                 smallest_ind = np.argmin(neigh_dist)
                 predicted = neigh_labels[smallest_ind]

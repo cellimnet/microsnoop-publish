@@ -3,7 +3,7 @@ import numpy as np
 
 def aggregate_sc_data(embeddings, inds, kys=None):
     """
-    在单细胞上做聚合，简单的求了下平均
+    aggreate single-cell level representations to fully-imaged level representations
     """
     embeddings = np.array(embeddings)
     inds = np.array(inds)
@@ -22,7 +22,7 @@ def aggregate_sc_data(embeddings, inds, kys=None):
             for kyi in kys.keys():
                 y = np.array(kys[kyi])
                 y = np.array(y[inds==indi])
-                flag = True  # 每个通道的inds应该是一样的
+                flag = True
                 if c > 1:
                     for i in range(1, c):
                         if y.ndim == 1:

@@ -2,6 +2,7 @@
 规定训练、eval的具体实施
 """
 import datetime
+import math
 import h5py
 import os, time
 import numpy as np
@@ -16,7 +17,7 @@ from microsnoop.models.models_utils import get_rank
 
 class Microsnoop(CoreModel):
     """
-    定义Microsnoop，包含train和eval流程，后续子类可以简单重载__init__即可
+    Define Microsnoop Class
     """
     def __init__(self):
         super().__init__()
@@ -30,7 +31,7 @@ class Microsnoop(CoreModel):
                                 world_size=args.world_size)
         torch.cuda.set_device(local_rank)
 
-        seed = args.seed + rank  # 设置种子主要是为了限制random_masking那里
+        seed = args.seed + rank
         torch.manual_seed(seed)
         np.random.seed(seed)
 

@@ -1,13 +1,12 @@
 import os, gc, math
 import re, sys, time, datetime
 project_path = os.path.abspath(os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + os.path.sep + ".")
-sys.path.append(project_path)  # 从命令行运行需要添加这个
+sys.path.append(project_path)
 import numpy as np
 import pandas as pd
 from sklearn.neighbors import KNeighborsClassifier
-from tqdm import trange
 from scellseg.io import imread
-from microsnoop.eval import EvalProcedure, FaissKNeighbors
+from microsnoop.eval import EvalProcedure
 from microsnoop.preprocess.crop import crop_inst
 from microsnoop.misc import get_embed_args_parser, check_chans
 from microsnoop.postprocess.spherize import ZCA_corr
@@ -38,7 +37,7 @@ class Dataset_bbbc021(EvalProcedure):
             rind = (ngen + 1) * gen_size if (ngen + 1) * gen_size < len(img_inds) else len(img_inds)
             imgs = np.array([imread(img_path) for img_path in img_paths[lind:rind]])
             n, h, w = imgs.shape
-            imgs = imgs.reshape((int(n/3), 3, h, w))  # 这个就要保证gen_size是3的倍数了
+            imgs = imgs.reshape((int(n/3), 3, h, w))
             inds = img_inds[lind:rind][::3]
 
             if seg:
@@ -59,7 +58,7 @@ class Dataset_bbbc021(EvalProcedure):
                 instmap_path = os.path.join(os.path.dirname(dataset_path), dataset_name+'_instmap.npy')
                 inst_map = {}
                 if os.path.isfile(instmap_path): inst_map = np.load(instmap_path, allow_pickle=True).item()
-                inst_mapi = dict(zip(inst_inds, inds))  # 建立inds_inds和img_inds的对应关系, 方便后面获取label等元数据
+                inst_mapi = dict(zip(inst_inds, inds))
                 inst_map.update(inst_mapi)
                 np.save(instmap_path, inst_map)
                 inds = inst_inds
@@ -71,7 +70,7 @@ class Dataset_bbbc021(EvalProcedure):
 
     def check_dataset_chans(self, dataset_path):
         """
-        check全部合格
+        check dataset chans
         """
         data = np.load(dataset_path, allow_pickle=True)
         img_paths = data['img_paths']
@@ -86,7 +85,8 @@ class Dataset_bbbc021(EvalProcedure):
         print(pd.DataFrame(check_results, index=[0]).T.to_markdown())
 
     def polish_embeddings(self, dataset_path, reshape_chans, embeddings, inds):
-        """ 由于分割过程中有的图片没有分割到单细胞，因此seg模式下的embeddings是<=实际图片数量的 """
+        """ The embeddings in seg mode are <= the actual number of images due to the fact
+        that some images do not contain any single cells """
         data = np.load(dataset_path, allow_pickle=True)
         img_paths = data['img_paths']
         img_inds = np.array(range(0, len(img_paths)))
@@ -124,7 +124,7 @@ class Dataset_bbbc021(EvalProcedure):
 
     def bbbc021_nsc_classify(self, test_X, test_y, compounds, unbalance=False):
         """
-        参考的是 DeepProfiler_experiment 中bbbc021的版本
+        refer to https://github.com/broadinstitute/DeepProfilerExperiments/tree/master/bbbc021
         """
         treatments = pd.DataFrame({'embeddings': list(test_X), 'labels': list(test_y), 'Compound': list(compounds)})
         model = KNeighborsClassifier(n_neighbors=1, algorithm="brute", metric="cosine")
@@ -155,7 +155,7 @@ class Dataset_bbbc021(EvalProcedure):
 
     def bbbc021_nscb_classify(self, treatments, unbalance=False):
         """
-        参考的是 DeepProfiler_experiment 中bbbc021的版本
+        refer to https://github.com/broadinstitute/DeepProfilerExperiments/tree/master/bbbc021
         """
         # Cholesterol-lowering and Kinase inhibitors are only in one batch
         valid_treatments = treatments[~treatments["label_names"].isin(["Cholesterol-lowering", "Kinase inhibitors"])]
@@ -190,13 +190,12 @@ class Dataset_bbbc021(EvalProcedure):
 
 
 if __name__ == '__main__':
-    dataset_dir = r'/Data2/datasets'  # Note：本地
-    # dataset_dir = r'/Data1'  # Note：aws
+    dataset_dir = r'/Data2/datasets'  # Note：input the root dir of your data
 
     dataset_name = 'bbbc021'
     output_dir = os.path.join(project_path, 'output')
 
-    data_names = ['bbbc021_comp', 'bbbc021_dmso']  # 'bbbc021_comp', 'bbbc021_dmso'
+    data_names = ['bbbc021_comp', 'bbbc021_dmso']
     for data_name in data_names:
         eval_dataset = Dataset_bbbc021()
         dataset_path = os.path.join(dataset_dir, dataset_name, data_name+'_eval.npz')
@@ -209,7 +208,7 @@ if __name__ == '__main__':
         checkpoint_path = os.path.join(output_dir, 'models', checkpoint_name)
         model_type = str(re.findall(r"_(.+?)_trData", checkpoint_path)[0])
         args = get_embed_args_parser().parse_args()
-        args.batch_size = 96  # cnn用的96，vit用的16；64在dim128的时候基本拉满了
+        args.batch_size = 96  # Note: depend on GPU memory
         args.input_size = int(re.findall(r"_inputSize-(.+?)_", checkpoint_path)[0])
         args.embed_dim = int(re.findall(r"_embedDim-(.+?)_", checkpoint_path)[0])
         args.in_chans = int(re.findall(r"_inChans-(.+?)_", checkpoint_path)[0])
@@ -221,11 +220,11 @@ if __name__ == '__main__':
         data_loader = eval_dataset.load_data(dataset_path, gen_size=300,
                                              seg=seg, rsc_crop=True,
                                              sta=224, crop_to_sta=False,
-                                             rsc_crop_ratio=2)
+                                             rsc_crop_ratio=2)  # Note: ’gen_size‘： depend on GPU memory
         start_time = time.time()
         eval_dataset.extract_embeddings(dataset_name, data_loader, checkpoint_path, args, model_type=model_type,
                                         rsc_to_diam=1.0, rescale_to_input=False,
-                                        tile=False, tile_overlap=0.1, tile_size=224)  # rsc_to_diam: 0.4
+                                        tile=False, tile_overlap=0.1, tile_size=224)
         total_time = time.time() - start_time
         total_time_str = str(datetime.timedelta(seconds=int(total_time)))
         print('\033[1;33mTotal Embed Time: {} \033[0m'.format(total_time_str))
@@ -249,7 +248,10 @@ if __name__ == '__main__':
     dmso_batches = eval_dataset.get_batches(dmso_dataset_path, dmso_inds, level=batch_level)
     dmso_embed_df_batches = pd.DataFrame({'embeddings':dmso_embeddings, 'batches': dmso_batches, 'inds': dmso_inds})
 
-    ### Spherize embeddings 这里参考的是cpjump1中的
+    """
+    Spherize embeddings
+    refer to https://github.com/jump-cellpainting/2021_Chandrasekaran_submitted/blob/main/benchmark/old_notebooks/3.spherize_profiles.ipynb
+    """
     batches = eval_dataset.get_batches(dataset_path, inds, level=batch_level)
     batches_all = list(set(batches))
     embed_df_batches = pd.DataFrame({'embeddings':embeddings, 'batches': batches, 'inds': inds})
@@ -270,9 +272,9 @@ if __name__ == '__main__':
 
     labels = eval_dataset.get_labels(dataset_path, inds)
     compounds = eval_dataset.get_compounds(dataset_path, inds)
-    aggregate_on_treatment = True  # ToDo: 选择在什么层次上进行特征聚合
+    aggregate_on_treatment = True
 
-    ### aggregate on treatment 在treatment层次聚合
+    ### aggregate on treatment
     concentrations = eval_dataset.get_concentrations(dataset_path, inds)
     batches = eval_dataset.get_batches(dataset_path, inds, level=batch_level)
     embed_df = pd.DataFrame({'embeddings':embeddings, 'compounds':compounds, 'concentrations':concentrations,

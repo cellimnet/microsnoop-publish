@@ -1,7 +1,7 @@
-import os, gc, math, h5py
+import os, gc, math
 import re, sys, time, datetime
 project_path = os.path.abspath(os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + os.path.sep + ".")
-sys.path.append(project_path)  # 从命令行运行需要添加这个
+sys.path.append(project_path)
 import numpy as np
 from scellseg.io import imread
 from microsnoop.eval import EvalProcedure
@@ -47,7 +47,7 @@ class Dataset_livecell(EvalProcedure):
                 instmap_path = os.path.join(os.path.dirname(dataset_path), dataset_name+'_instmap.npy')
                 inst_map = {}
                 if os.path.isfile(instmap_path): inst_map = np.load(instmap_path, allow_pickle=True).item()
-                inst_mapi = dict(zip(inst_inds, inds))  # 建立inds_inds和img_inds的对应关系, 方便后面获取label等元数据
+                inst_mapi = dict(zip(inst_inds, inds))
                 inst_map.update(inst_mapi)
                 np.save(instmap_path, inst_map)
                 inds = inst_inds
@@ -64,8 +64,7 @@ class Dataset_livecell(EvalProcedure):
 
 
 if __name__ == '__main__':
-    dataset_dir = r'/Data2/datasets'  # Note：本地
-    # dataset_dir = r'/Data1'  # Note：aws
+    dataset_dir = r'/Data2/datasets'  # Note：input the root dir of your data
 
     dataset_name = 'livecell'
     output_dir = os.path.join(project_path, 'output')
@@ -81,7 +80,7 @@ if __name__ == '__main__':
     checkpoint_path = os.path.join(output_dir, 'models', checkpoint_name)
     model_type = str(re.findall(r"_(.+?)_trData", checkpoint_path)[0])
     args = get_embed_args_parser().parse_args()
-    args.batch_size = 64  # cnn用的64，vit用的16
+    args.batch_size = 64  # Note: depend on GPU memory
     args.input_size = int(re.findall(r"_inputSize-(.+?)_", checkpoint_path)[0])
     args.embed_dim = int(re.findall(r"_embedDim-(.+?)_", checkpoint_path)[0])
     args.in_chans = int(re.findall(r"_inChans-(.+?)_", checkpoint_path)[0])
@@ -92,11 +91,11 @@ if __name__ == '__main__':
     seg = True
     data_loader = eval_dataset.load_data(dataset_path, gen_size=300,
                                          seg=seg, sta=args.input_size, rsc_crop=True,
-                                         rsc_crop_ratio=1)
+                                         rsc_crop_ratio=1)  # Note: ’gen_size‘： depend on GPU memory
     start_time = time.time()
     eval_dataset.extract_embeddings(dataset_name, data_loader, checkpoint_path, args, model_type=model_type,
                                     rsc_to_diam=1.0, rescale_to_input=False,
-                                    tile=False) # rsc_to_diam: 0.4
+                                    tile=False)
     total_time = time.time() - start_time
     total_time_str = str(datetime.timedelta(seconds=int(total_time)))
     print('\033[1;33mTotal Embed Time: {} \033[0m'.format(total_time_str))

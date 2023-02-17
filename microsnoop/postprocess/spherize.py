@@ -8,6 +8,9 @@ from sklearn.utils.validation import check_is_fitted
 
 
 class ZCA_corr(BaseEstimator, TransformerMixin):
+    """
+    refer to https://github.com/jump-cellpainting/2021_Chandrasekaran_submitted/blob/main/benchmark/old_notebooks/3.spherize_profiles.ipynb
+    """
     def __init__(self, copy=False):
         self.copy = copy
 
@@ -33,7 +36,7 @@ class ZCA_corr(BaseEstimator, TransformerMixin):
         cov = np.dot(X_.T, X_) / (X_.shape[0] - 1)
         V = np.diag(cov)
         df = pd.DataFrame(X_)
-        corr = np.nan_to_num(df.corr()) # replacing nan with 0 and inf with large values
+        corr = np.nan_to_num(df.corr())  # replacing nan with 0 and inf with large values
         G, T, _ = scipy.linalg.svd(corr)
         regularization = self.estimate_regularization(T.real)
         t = np.sqrt(T.clip(regularization))

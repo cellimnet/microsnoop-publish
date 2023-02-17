@@ -13,7 +13,7 @@ def find_inst_bbox(maski, j):
 
 def square_image(X, M=None):
     """
-    X: list or nparray
+    X: list or ndarray
     channel first
     """
     nimg = len(X)
@@ -52,7 +52,7 @@ def square_image(X, M=None):
 
 def resize_image(X, M=None, rsc=1.0, xy=None, interpolation=cv2.INTER_LINEAR):
     """
-    X: list or nparray
+    X: list or ndarray
     channel first
     """
     nimg = len(X)
@@ -85,7 +85,7 @@ def resize_image(X, M=None, rsc=1.0, xy=None, interpolation=cv2.INTER_LINEAR):
 
 def pad_image(X, M=None, xy=None):
     """
-    X: list or nparray
+    X: list or ndarray
     channel first
     """
     nimg = len(X)
@@ -132,7 +132,7 @@ def normalize_img(img, axis=-1, invert=False):
     axis: channel axis to loop over for normalization
 
     Returns
-    img: ND-array, float32
+    img: ndarray, float32
         normalized image of same size
     """
     if img.ndim<3:

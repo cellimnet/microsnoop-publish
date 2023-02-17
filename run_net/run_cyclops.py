@@ -1,8 +1,8 @@
-import os, gc, math, h5py
+import os, gc, math
 import re, sys, time, datetime
 import pandas as pd
 project_path = os.path.abspath(os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + os.path.sep + ".")
-sys.path.append(project_path)  # 从命令行运行需要添加这个
+sys.path.append(project_path)
 import numpy as np
 from scellseg.io import imread
 from microsnoop.eval import EvalProcedure
@@ -27,7 +27,7 @@ class Dataset_cyclops(EvalProcedure):
             rind = (ngen + 1) * gen_size if (ngen + 1) * gen_size < len(img_inds) else len(img_inds)
             imgs = np.array([imread(img_path) for img_path in img_paths[lind:rind]])
             n, h, w = imgs.shape
-            imgs = imgs.reshape((int(n/2), 2, h, w))  # 这个就要保证gen_size是2的倍数了
+            imgs = imgs.reshape((int(n/2), 2, h, w))
             inds = img_inds[lind:rind][::2]
             name_meta = 'ind-'+str(lind)+'to'+str(rind-1)
             yield imgs, inds, name_meta
@@ -36,7 +36,7 @@ class Dataset_cyclops(EvalProcedure):
 
     def check_dataset_chans(self, dataset_path):
         """
-        check全部合格
+        check dataset chans
         """
         data = np.load(dataset_path, allow_pickle=True)
         img_paths = data['img_paths']
@@ -57,8 +57,7 @@ class Dataset_cyclops(EvalProcedure):
 
 
 if __name__ == '__main__':
-    dataset_dir = r'/Data2/datasets'  # Note：本地
-    # dataset_dir = r'/Data1'  # Note：aws
+    dataset_dir = r'/Data2/datasets'  # Note：input the root dir of your data
 
     dataset_name = 'cyclops'
     output_dir = os.path.join(project_path, 'output')
@@ -74,7 +73,7 @@ if __name__ == '__main__':
     checkpoint_path = os.path.join(output_dir, 'models', checkpoint_name)
     model_type = str(re.findall(r"_(.+?)_trData", checkpoint_path)[0])
     args = get_embed_args_parser().parse_args()
-    args.batch_size = 16
+    args.batch_size = 16  # Note: depend on GPU memory
     args.input_size = int(re.findall(r"_inputSize-(.+?)_", checkpoint_path)[0])
     args.embed_dim = int(re.findall(r"_embedDim-(.+?)_", checkpoint_path)[0])
     args.in_chans = int(re.findall(r"_inChans-(.+?)_", checkpoint_path)[0])
@@ -82,10 +81,10 @@ if __name__ == '__main__':
         args.patch_size = int(re.findall(r"_patchSize-(.+?)_", checkpoint_path)[0])
     args.embed_dir = os.path.join(output_dir, 'embeddings', dataset_name)
 
-    data_loader = eval_dataset.load_data(dataset_path, gen_size=4096)
+    data_loader = eval_dataset.load_data(dataset_path, gen_size=4096)  # Note: ’gen_size‘： depend on GPU memory
     start_time = time.time()
     eval_dataset.extract_embeddings(dataset_name, data_loader, checkpoint_path, args, model_type=model_type,
-                                    rsc_to_diam=1.0, rescale_to_input=False)  # rsc_to_diam: 0.6
+                                    rsc_to_diam=1.0, rescale_to_input=False)
     total_time = time.time() - start_time
     total_time_str = str(datetime.timedelta(seconds=int(total_time)))
     print('\033[1;33mTotal Embed Time: {} \033[0m'.format(total_time_str))
