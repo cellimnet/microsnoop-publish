@@ -5,22 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b80fa52-921c-418e-b22f-d739e5d0e10c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microsnoop/datasets/datasets_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/microsnoop/datasets/datasets_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microsnoop/eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/microsnoop/eval.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microsnoop/misc.py" beforeDir="false" afterPath="$PROJECT_DIR$/microsnoop/misc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microsnoop/models/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/microsnoop/models/core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microsnoop/models/models_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/microsnoop/models/models_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microsnoop/models/modelzoo.py" beforeDir="false" afterPath="$PROJECT_DIR$/microsnoop/models/modelzoo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microsnoop/models/net_blocks.py" beforeDir="false" afterPath="$PROJECT_DIR$/microsnoop/models/net_blocks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microsnoop/models/net_combine.py" beforeDir="false" afterPath="$PROJECT_DIR$/microsnoop/models/net_combine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microsnoop/models/net_desc.py" beforeDir="false" afterPath="$PROJECT_DIR$/microsnoop/models/net_desc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microsnoop/postprocess/aggregate.py" beforeDir="false" afterPath="$PROJECT_DIR$/microsnoop/postprocess/aggregate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microsnoop/postprocess/spherize.py" beforeDir="false" afterPath="$PROJECT_DIR$/microsnoop/postprocess/spherize.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microsnoop/preprocess/crop.py" beforeDir="false" afterPath="$PROJECT_DIR$/microsnoop/preprocess/crop.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_net/run_bbbc021.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_net/run_bbbc021.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_net/run_cyclops.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_net/run_cyclops.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_net/run_livecell.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_net/run_livecell.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,17 +144,29 @@
       <option name="presentableId" value="Default" />
       <updated>1676187152598</updated>
       <workItem from="1676187153789" duration="5929000" />
-      <workItem from="1676625506998" duration="4712000" />
+      <workItem from="1676625506998" duration="5204000" />
     </task>
+    <task id="LOCAL-00001" summary="update Chinese to English">
+      <created>1676641742154</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1676641742154</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update Chinese to English" />
+    <option name="LAST_COMMIT_MESSAGE" value="update Chinese to English" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/microsnoop_publish$eval.coverage" NAME="eval Coverage Results" MODIFIED="1676188787213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microsnoop" />
     <SUITE FILE_PATH="coverage/microsnoop_publish$run_bbbc021.coverage" NAME="run_bbbc021 Coverage Results" MODIFIED="1676639210093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/run_net" />
     <SUITE FILE_PATH="coverage/microsnoop_publish$run_livecell.coverage" NAME="run_livecell Coverage Results" MODIFIED="1676190680089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/run_net" />
-    <SUITE FILE_PATH="coverage/microsnoop_publish$run_cyclops.coverage" NAME="run_cyclops Coverage Results" MODIFIED="1676641301143" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/run_net" />
+    <SUITE FILE_PATH="coverage/microsnoop_publish$run_cyclops.coverage" NAME="run_cyclops Coverage Results" MODIFIED="1676641747571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/run_net" />
   </component>
 </project>

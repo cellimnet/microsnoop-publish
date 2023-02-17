@@ -1,0 +1,11 @@
+opencv-python
+numpy
+pandas
+torch
+scellseg
+h5py
+scikit-learn
+scipy
+kneed
+faiss
+tqdm
