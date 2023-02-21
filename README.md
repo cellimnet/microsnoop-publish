@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Microsnoop
 
 A generalist tool for the unbiased representation of heterogeneous microscopy images
@@ -27,3 +28,7 @@ CytoImageNet: https://github.com/stan-hua/CytoImageNet
 MAE: https://github.com/facebookresearch/mae
 Scellseg: https://github.com/cellimnet/scellseg-publish
 CPJUMP1: https://github.com/jump-cellpainting/2021_Chandrasekaran_submitted
+=======
+# microsnoop-publish
+A generalist tool for unbiased representation of heterogeneous microscopy image
+>>>>>>> origin/main
