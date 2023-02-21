@@ -24,7 +24,11 @@ This project uses h5py, numpy, opencv-python, scipy, pandas, kneed, faiss, tqdm,
 ### **Declaration**
 
 Our pipeline referred to the following projects:
+
 CytoImageNet: https://github.com/stan-hua/CytoImageNet
+
 MAE: https://github.com/facebookresearch/mae
+
 Scellseg: https://github.com/cellimnet/scellseg-publish
+
 CPJUMP1: https://github.com/jump-cellpainting/2021_Chandrasekaran_submitted
