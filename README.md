@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Microsnoop
 
 A generalist tool for the unbiased representation of heterogeneous microscopy images
