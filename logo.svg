@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>自定义预设</title>
+    <g id="自定义预设" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组">
+            <rect id="矩形" fill="#FFFFFF" fill-rule="nonzero" x="0" y="0" width="80" height="80" rx="17.01"></rect>
+            <polygon id="路径" fill="#F6AD3C" points="18.664158 18.664158 21.7121355 18.664158 27.8080903 43.0479774 27.8080903 61.335842 18.664158 61.335842"></polygon>
+            <polygon id="路径" fill="#F08300" points="36.9520226 61.335842 32.3800564 61.335842 27.8080903 43.0479774 27.8080903 18.664158 30.8560677 18.664158 36.9520226 43.0479774"></polygon>
+            <polygon id="路径" fill="#65AADD" points="44.5719661 18.664158 61.3264346 18.664158 61.3264346 61.335842 55.2398871 61.335842"></polygon>
+            <polygon id="路径" fill="#65AADD" points="50.667921 61.335842 41.5239887 61.335842 36.9520226 43.0479774 36.9520226 18.664158 40 18.664158"></polygon>
+        </g>
+    </g>
+</svg>
