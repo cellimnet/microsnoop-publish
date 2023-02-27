@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b80fa52-921c-418e-b22f-d739e5d0e10c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microsnoop/models/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/microsnoop/models/core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microsnoop/models/modelzoo.py" beforeDir="false" afterPath="$PROJECT_DIR$/microsnoop/models/modelzoo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microsnoop/preprocess/crop.py" beforeDir="false" afterPath="$PROJECT_DIR$/microsnoop/preprocess/crop.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_net/run_bbbc021.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_net/run_bbbc021.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_net/run_cyclops.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_net/run_cyclops.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_net/run_livecell.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_net/run_livecell.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +146,7 @@
       <updated>1676187152598</updated>
       <workItem from="1676187153789" duration="5929000" />
       <workItem from="1676625506998" duration="13212000" />
-      <workItem from="1677461969450" duration="7570000" />
+      <workItem from="1677461969450" duration="11377000" />
     </task>
     <task id="LOCAL-00001" summary="update Chinese to English">
       <created>1676641742154</created>
@@ -239,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677462444341</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="update annotation">
+      <created>1677478218629</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1677478218629</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,12 +260,13 @@
     <MESSAGE value="update Chinese to English" />
     <MESSAGE value="add requirements.txt" />
     <MESSAGE value="update README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="update README.md" />
+    <MESSAGE value="update annotation" />
+    <option name="LAST_COMMIT_MESSAGE" value="update annotation" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/microsnoop_publish$eval.coverage" NAME="eval Coverage Results" MODIFIED="1676188787213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microsnoop" />
     <SUITE FILE_PATH="coverage/microsnoop_publish$run_bbbc021.coverage" NAME="run_bbbc021 Coverage Results" MODIFIED="1676722225235" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/run_net" />
     <SUITE FILE_PATH="coverage/microsnoop_publish$run_livecell.coverage" NAME="run_livecell Coverage Results" MODIFIED="1676642306625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/run_net" />
-    <SUITE FILE_PATH="coverage/microsnoop_publish$run_cyclops.coverage" NAME="run_cyclops Coverage Results" MODIFIED="1677477242404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/run_net" />
+    <SUITE FILE_PATH="coverage/microsnoop_publish$run_cyclops.coverage" NAME="run_cyclops Coverage Results" MODIFIED="1677479610710" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/run_net" />
   </component>
 </project>
