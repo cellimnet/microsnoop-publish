@@ -22,7 +22,7 @@ class Dataset_cyclops(EvalProcedure):
         img_inds = np.array(range(0, len(img_paths)))
         if gen_size is None: gen_size=len(img_inds)
         ngens = math.ceil(len(img_inds) / gen_size)
-        for ngen in range(ngens):
+        for ngen in range(ngens):  # Task distribution module
             lind = ngen * gen_size
             rind = (ngen + 1) * gen_size if (ngen + 1) * gen_size < len(img_inds) else len(img_inds)
             imgs = np.array([imread(img_path) for img_path in img_paths[lind:rind]])
@@ -58,6 +58,7 @@ class Dataset_cyclops(EvalProcedure):
 
 if __name__ == '__main__':
     dataset_dir = r'/Data2/datasets'  # Note：input the root dir of your data
+    dataset_dir = r'/Data1'  # Note：if aws
 
     dataset_name = 'cyclops'
     output_dir = os.path.join(project_path, 'output')
@@ -69,7 +70,7 @@ if __name__ == '__main__':
 
     ###### 1. extract embeddings ######
     checkpoint_name = \
-        r'20220904-1246_cnn_trData-microsnoop_trMode-mae_batchSize-16_inputSize-224_inChans-1_embedDim-256_maskRatio-0.25_epoch-999.pth'
+        r'Microsnoop_cnn_trData-microsnoop_trMode-mae_batchSize-16_inputSize-224_inChans-1_embedDim-256_maskRatio-0.25_epoch-999.pth'
     checkpoint_path = os.path.join(output_dir, 'models', checkpoint_name)
     model_type = str(re.findall(r"_(.+?)_trData", checkpoint_path)[0])
     args = get_embed_args_parser().parse_args()
@@ -81,7 +82,7 @@ if __name__ == '__main__':
         args.patch_size = int(re.findall(r"_patchSize-(.+?)_", checkpoint_path)[0])
     args.embed_dir = os.path.join(output_dir, 'embeddings', dataset_name)
 
-    data_loader = eval_dataset.load_data(dataset_path, gen_size=4096)  # Note: ’gen_size‘： depend on GPU memory
+    data_loader = eval_dataset.load_data(dataset_path, gen_size=1024)  # Note: ’gen_size‘： depend on GPU memory
     start_time = time.time()
     eval_dataset.extract_embeddings(dataset_name, data_loader, checkpoint_path, args, model_type=model_type,
                                     rsc_to_diam=1.0, rescale_to_input=False)

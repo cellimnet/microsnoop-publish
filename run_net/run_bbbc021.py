@@ -32,7 +32,7 @@ class Dataset_bbbc021(EvalProcedure):
         ngens = math.ceil(len(img_inds) / gen_size)
 
         num_insts = 0
-        for ngen in range(0, ngens):  # Todo：这里可以通过调节跳过前面已经跑过的
+        for ngen in range(0, ngens):  # Task distribution module
             lind = ngen * gen_size
             rind = (ngen + 1) * gen_size if (ngen + 1) * gen_size < len(img_inds) else len(img_inds)
             imgs = np.array([imread(img_path) for img_path in img_paths[lind:rind]])
@@ -191,6 +191,7 @@ class Dataset_bbbc021(EvalProcedure):
 
 if __name__ == '__main__':
     dataset_dir = r'/Data2/datasets'  # Note：input the root dir of your data
+    dataset_dir = r'/Data1'  # Note：if aws
 
     dataset_name = 'bbbc021'
     output_dir = os.path.join(project_path, 'output')
@@ -204,7 +205,7 @@ if __name__ == '__main__':
 
         ###### 1. extract embeddings ######
         checkpoint_name = \
-            r'20220904-1246_cnn_trData-microsnoop_trMode-mae_batchSize-16_inputSize-224_inChans-1_embedDim-256_maskRatio-0.25_epoch-999.pth'
+            r'Microsnoop_cnn_trData-microsnoop_trMode-mae_batchSize-16_inputSize-224_inChans-1_embedDim-256_maskRatio-0.25_epoch-999.pth'
         checkpoint_path = os.path.join(output_dir, 'models', checkpoint_name)
         model_type = str(re.findall(r"_(.+?)_trData", checkpoint_path)[0])
         args = get_embed_args_parser().parse_args()

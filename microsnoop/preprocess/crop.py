@@ -1,6 +1,3 @@
-"""
-这里假设channel last
-"""
 import copy
 import numpy as np
 import cv2

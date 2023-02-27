@@ -1,5 +1,5 @@
 """
-规定一些通用的计算图流动：_train_net, _run_nets
+Define C:CoreModel, including f:_embed_imgs and f:load_model
 """
 
 import os

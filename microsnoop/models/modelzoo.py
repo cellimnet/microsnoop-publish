@@ -1,6 +1,9 @@
 """
-规定训练、eval的具体实施
+Define C:Microsnoop, including: f:embed
+here we publish the Microsnoop with our pretrained CNN architecture
+Users can build your own network architecture following the example: C:MicrosnoopCNN
 """
+
 import datetime
 import math
 import h5py

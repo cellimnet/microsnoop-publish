@@ -42,8 +42,6 @@ Accurate and automated representation of microscopy images from small-scale to h
 
 
 
-
-
 **Fig. 1 | Design of Microsnoop for microscopy image representation. a,** Schematic of the learning process. (i) Example of the four main category images are shown. The channels range from cellular organelles to tissues. (ii) A masked self-supervised learning strategy was employed and only images are required for training without additional manual annotation. One-channel masked images were set as the input and the Encoder- Decoder were required to reconstruct the original images. **b,** At test time, (i) Example images from various downstream tasks are shown, with different resolutions, number of channels and image types. These microscopy images are categorized into 3 types to ensure the broad coverage of image profiling needs. (ii) Application of Microsnoop. Each batch of images is fed into the pre-trained encoder, and the output smallest convolutional maps are processed by average pooling. Then, all extracted embeddings are processed according to different profiling tasks. The potential downstream analyses of our generalist representation tool are shown in the panel.
 
 ### Install
@@ -56,13 +54,21 @@ Our Environment: Python --3.7，CUDA --11.6， GPU --NVIDIA GeForce RTX 3090
 
 This project uses h5py, numpy, opencv-python, scipy, pandas, kneed, faiss, tqdm, scikit-learn, torch, scellseg, . Go check them out if you don't have them, you can install them with conda or pip.
 
-
-
-##### Amazon Cloud Computing:
+##### Amazon Cloud Computing
 
 A configured Amazon Machine Image (AMI) is available at . You can follow the following steps to quickly deploy Microsnoop for microscopy image analysis.
 
+1. Launch instance from AMI: choose microsnoop-public-20230227
 
+2. Choose suitable hardware, e.g. CPU, GPU, storage
+
+3. Activate conda environment using: 
+
+   ```
+   conda activate pytorch_latest_p37
+   ```
+
+4. Configure SSH and upload your profiling script
 
 ### Usage
 
