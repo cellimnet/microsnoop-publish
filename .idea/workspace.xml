@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b80fa52-921c-418e-b22f-d739e5d0e10c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/overview.png" beforeDir="false" afterPath="$PROJECT_DIR$/overview.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,6 +145,7 @@
       <updated>1676187152598</updated>
       <workItem from="1676187153789" duration="5929000" />
       <workItem from="1676625506998" duration="13212000" />
+      <workItem from="1677461969450" duration="327000" />
     </task>
     <task id="LOCAL-00001" summary="update Chinese to English">
       <created>1676641742154</created>
@@ -195,7 +196,21 @@
       <option name="project" value="LOCAL" />
       <updated>1676989148457</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update README.md">
+      <created>1677462021533</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1677462021533</updated>
+    </task>
+    <task id="LOCAL-00009" summary="update README.md">
+      <created>1677462036919</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1677462036919</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
