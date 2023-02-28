@@ -90,7 +90,7 @@ if __name__ == '__main__':
     args.embed_dir = os.path.join(output_dir, 'embeddings', dataset_name)
 
     seg = True
-    data_loader = eval_dataset.load_data(dataset_path, gen_size=300,
+    data_loader = eval_dataset.load_data(dataset_path, gen_size=30,
                                          seg=seg, sta=args.input_size, rsc_crop=True,
                                          rsc_crop_ratio=1)  # Note: ’gen_size‘： depend on GPU memory
     start_time = time.time()

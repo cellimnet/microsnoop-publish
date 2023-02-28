@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="aws-microsnoop-1@52.83.63.111" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="aws-microsnoop-2@161.189.47.147" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
     <option name="confirmBeforeUploading" value="false" />
     <serverData>
       <paths name="326-3090@10.71.129.189">
@@ -30,6 +30,7 @@
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/home/ubuntu/projects/microsnoop-publish" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>

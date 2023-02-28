@@ -56,23 +56,16 @@ This project uses h5py, numpy, opencv-python, scipy, pandas, kneed, faiss, tqdm,
 
 ##### Amazon Cloud Computing
 
-A configured Amazon Machine Image (AMI) is available at . You can follow the following steps to quickly deploy Microsnoop for microscopy image analysis.
+A configured Amazon Machine Image (AMI) is available at Community AMIs. You can follow the following steps to quickly deploy Microsnoop for microscopy image analysis.
 
-1. Launch instance from AMI: choose microsnoop-public-20230227
-
+1. Launch instance from AMI: search and choose our AMI --- microsnoop-public-20230228
 2. Choose suitable hardware, e.g. CPU, GPU, storage
-
-3. Activate conda environment using: 
-
-   ```
-   conda activate pytorch_latest_p37
-   ```
-
-4. Configure SSH and upload your profiling script
+3. Configure SSH: The name of our configured env is pytorch_latest_p37
+4. Map your local project to the deployment project
 
 ### Usage
 
-We provide examples of using Microsnoop for profiling single-cell (run_cyclops), fully-imaged (run_livecell), and batch-experiment  (run_bbbc021) images. You can follow these examples to build your own process. Any questions on the use of the software can be contacted via Issues and we will reply promptly.
+We provide examples of using Microsnoop for profiling single-cell (run_cyclops), fully-imaged (run_livecell), and batch-experiment  (run_bbbc021) images, corresponding data can be obtained at https://microsnoop-publish-data.s3.cn-northwest-1.amazonaws.com.cn/evaluation_datasets/. You can follow these examples to build your own process. Any questions on the use of the software can be contacted via Issues and we will reply promptly.
 
 ### **Reference**
 
