@@ -60,7 +60,7 @@ A configured Amazon Machine Image (AMI) is available at Community AMIs. You can 
 
 1. Launch instance from AMI: search and choose our AMI --- microsnoop-public-20230228
 2. Choose suitable hardware, e.g. CPU, GPU, storage
-3. Configure SSH: The name of our configured env is pytorch_latest_p37
+3. Configure SSH: the name of our configured env is pytorch_latest_p37
 4. Map your local project to the deployment project
 
 ### Usage
