@@ -65,7 +65,15 @@ A configured Amazon Machine Image (AMI) is available at Community AMIs. You can 
 
 ### Usage
 
-We provide examples of using Microsnoop for profiling single-cell (run_cyclops), fully-imaged (run_livecell), and batch-experiment  (run_bbbc021) images, corresponding data can be obtained at https://microsnoop-publish-data.s3.cn-northwest-1.amazonaws.com.cn/evaluation_datasets/. You can follow these examples to build your own process. Any questions on the use of the software can be contacted via Issues and we will reply promptly.
+We provide examples of using Microsnoop for profiling single-cell (run_cyclops), fully-imaged (run_livecell), and batch-experiment  (run_bbbc021) images, corresponding data can be obtained at https://microsnoop-publish-data.s3.cn-northwest-1.amazonaws.com.cn/example_datasets/. You can follow these examples to build your own process. Any questions on the use of the software can be contacted via Issues and we will reply promptly.
+
+You can download the example datasets through:
+
+```
+
+```
+
+
 
 ### **Reference**
 
