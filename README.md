@@ -77,17 +77,9 @@ Steps to run Microsnoop on the example datasets:
 
    **Note:** 
    
-   a. The raw images of CYCLoPs need to be downloaded from https://www.kaggle.com/datasets/stanleyhua/cyclops-protein-loc/. Copy the images into the 'example_datasets/cyclops' folder.  The final directory structure can be seen following:
+   ​	a. The raw images of CYCLoPs need to be downloaded from https://www.kaggle.com/datasets/stanleyhua/cyclops-protein-loc/. Copy the images into the 'example_datasets/cyclops' folder.  The final directory structure can be seen as ''cyclops.gif":
    
-   <img src="./cyclops.gif" width="700" title="Directory structure of cyclops" alt="Directory structure of cyclops" align="left">
-   
-   
-   
-   b. The raw images of BBBC021 need to be downloaded from https://bbbc.broadinstitute.org/BBBC021. Copy the images into the 'example_datasets/bbbc021' folder. The final directory structure can be seen following:
-   
-   <img src="./bbbc021.gif" width="700" title="Directory structure of bbbc021" alt="Directory structure of bbbc021" align="left">
-   
-   
+   ​	b. The raw images of BBBC021 need to be downloaded from https://bbbc.broadinstitute.org/BBBC021. Copy the images into the 'example_datasets/bbbc021' folder. The final directory structure can be seen as ''bbbc021.gif".
    
    
    Input the root dir of the example datasets. For example, if your dataset directory is ''/Data/datasets/cyclops', you can replace the original dataset_dir with '/Data/datasets' in run_cyclops.py:
