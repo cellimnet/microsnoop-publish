@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6b80fa52-921c-418e-b22f-d739e5d0e10c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_net/run_bbbc021.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_net/run_bbbc021.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_net/run_cyclops.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_net/run_cyclops.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_net/run_tissuenet.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_net/run_tissuenet.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,20 +24,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "true",
-    "last_opened_file_path": "G:/Python/9-Project/3-cellmae/microsnoop-publish/paper_review",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/Python/9-Project/3-cellmae/microsnoop-publish/paper_review&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\Python\9-Project\3-cellmae\microsnoop-publish\paper_review" />
@@ -115,7 +111,8 @@
       <workItem from="1677666397507" duration="15000" />
       <workItem from="1677666724773" duration="8000" />
       <workItem from="1677669567088" duration="433000" />
-      <workItem from="1677675323472" duration="16223000" />
+      <workItem from="1677675323472" duration="16787000" />
+      <workItem from="1677753328697" duration="767000" />
     </task>
     <task id="LOCAL-00001" summary="update Chinese to English">
       <created>1676641742154</created>
@@ -292,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677738953926</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="update README.md">
+      <created>1677741493382</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1677741493382</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
