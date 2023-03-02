@@ -102,7 +102,7 @@ Steps to run Microsnoop on the example datasets:
    ```python
    import h5py
    
-   embed_path = r'/Data/microsnoop/output/embeddings/cyclops'  # input the path of the feature embeddings
+   embed_path = r'/Data/microsnoop/output/embeddings/cyclops/ind-0to4095.h5'  # input the path of the feature embeddings
    embeddings_file = h5py.File(embed_path)
    embeddings = embeddings_file['embeddings'][:]
    inds = embeddings_file['inds'][:]
