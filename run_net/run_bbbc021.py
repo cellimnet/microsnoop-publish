@@ -191,7 +191,6 @@ class Dataset_bbbc021(EvalProcedure):
 
 if __name__ == '__main__':
     dataset_dir = r'/Data2/datasets'  # Note：input the root dir of your data
-    dataset_dir = r'/Data1'  # Note：if aws
 
     dataset_name = 'bbbc021'
     output_dir = os.path.join(project_path, 'output')

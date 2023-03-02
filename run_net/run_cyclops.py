@@ -57,8 +57,8 @@ class Dataset_cyclops(EvalProcedure):
 
 
 if __name__ == '__main__':
-    dataset_dir = r'/Data2/datasets'  # Note：input the root dir of your data
-    dataset_dir = r'/Data1'  # Note：if aws
+    dataset_dir = r'/Data1/files/example_datasets'  # Note：input the root dir of your data
+    # dataset_dir = r'/Data1'  # Note：if aws
 
     dataset_name = 'cyclops'
     output_dir = os.path.join(project_path, 'output')
