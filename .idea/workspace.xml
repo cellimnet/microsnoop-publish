@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b80fa52-921c-418e-b22f-d739e5d0e10c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bbbc021.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cyclops.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_review/run_bbbc048.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_review/run_consep.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_review/run_coos7.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_review/run_cyclops.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper_review/run_tissuenet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run_net/run_tissuenet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_net/run_bbbc021.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_net/run_bbbc021.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_net/run_cyclops.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_net/run_cyclops.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_net/run_livecell.py" beforeDir="false" afterPath="$PROJECT_DIR$/paper_review/run_livecell.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +34,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
@@ -192,7 +180,7 @@
       <workItem from="1677666397507" duration="15000" />
       <workItem from="1677666724773" duration="8000" />
       <workItem from="1677669567088" duration="433000" />
-      <workItem from="1677675323472" duration="13762000" />
+      <workItem from="1677675323472" duration="14080000" />
     </task>
     <task id="LOCAL-00001" summary="update Chinese to English">
       <created>1676641742154</created>
@@ -334,7 +322,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677669605143</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="update README.md">
+      <created>1677738407523</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1677738407523</updated>
+    </task>
+    <task id="LOCAL-00022" summary="update README.md">
+      <created>1677738539962</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1677738539962</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
