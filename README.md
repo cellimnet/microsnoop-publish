@@ -77,32 +77,70 @@ Steps to run Microsnoop on the example datasets:
 
    **Note:** 
    
-   ​	a. The raw images of CYCLoPs need to be downloaded from https://www.kaggle.com/datasets/stanleyhua/cyclops-protein-loc/. Copy the images into the 'example_datasets/cyclops' folder.  The final directory structure can be seen following:
-   
-   <img src="./cyclops.gif" width="700" title="Directory structure of cyclops" alt="Directory structure of cyclops" align="left">
+   ​	a. The raw images of CYCLoPs need to be downloaded from https://www.kaggle.com/datasets/stanleyhua/cyclops-protein-loc/. Copy the images into the 'example_datasets/cyclops' folder.  The final directory structure can be seen following:<img src="./cyclops.gif" width="700" title="Directory structure of cyclops" alt="Directory structure of cyclops" align="left">
    
    ​	
    
-   ​	b. The raw images of BBBC021 need to be downloaded from https://bbbc.broadinstitute.org/BBBC021. Copy the images into the 'example_datasets/bbbc021' folder. The final directory structure can be seen following:
+   ​	
    
-   <img src="./bbbc021.gif" width="700" title="Directory structure of bbbc021" alt="Directory structure of bbbc021" align="left">
    
-3. Input the root dir of the example datasets. For example, if your dataset directory is ''/Data/datasets/cyclops', you can replace the original dataset_dir with '/Data/datasets' in run_cyclops.py:
-
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   ​	b. The raw images of BBBC021 need to be downloaded from https://bbbc.broadinstitute.org/BBBC021. Copy the images into the 'example_datasets/bbbc021' folder. The final directory structure can be seen following:<img src="./bbbc021.gif" width="700" title="Directory structure of bbbc021" alt="Directory structure of bbbc021" align="left">
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   Input the root dir of the example datasets. For example, if your dataset directory is ''/Data/datasets/cyclops', you can replace the original dataset_dir with '/Data/datasets' in run_cyclops.py:
+   
    ```python
    dataset_dir = r'/Data/datasets'
    ```
-
-4. Input the suitable batch_size  according to the available memory capacity of your GPU, and gen_size  according to the available memory capacity of your CPU.
+   
+3. Input the suitable batch_size  according to the available memory capacity of your GPU, and gen_size  according to the available memory capacity of your CPU.
 
    ```python
    args.batch_size = 16
    data_loader = eval_dataset.load_data(dataset_path, gen_size=1024)  # gen_size should be an integer multiple of the channel numbers
    ```
 
-5. Configure the environment and run the script.
+4. Configure the environment and run the script.
 
-6. The output of Microsnoop is feature embeddings of each one-channel image in '.h5' format. You can read a '.h5' file through:
+5. The output of Microsnoop is feature embeddings of each one-channel image in '.h5' format. You can read a '.h5' file through:
 
    ```python
    import h5py
@@ -116,7 +154,7 @@ Steps to run Microsnoop on the example datasets:
 
    The path of these output embeddings is in folder 'output/embeddings'.
 
-7. The run time for run the example scripts on our device (CPU: 192GB, GPU: NVIDIA GeForce RTX 3090) is:
+6. The run time for run the example scripts on our device (CPU: 192GB, GPU: NVIDIA GeForce RTX 3090) is:
 
    | Script           | Time    | batch_size | gen_size |
    | ---------------- | ------- | ---------- | -------- |
