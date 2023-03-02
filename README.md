@@ -67,7 +67,7 @@ A configured Amazon Machine Image (AMI) is available at Community AMIs. You can 
 
 ### Usage
 
-We provide examples of using Microsnoop for profiling single-cell (run_cyclops), fully-imaged (run_tissuenet), and batch-experiment  (run_bbbc021) images, corresponding data can be obtained at  https://figshare.com/articles/dataset/Microsnoop_a_generalist_tool_for_the_unbiased_representation_of_heterogeneous_microscopy_images/22197607. You can follow these examples to build your own process. Any questions on the use of the software can be contacted via Issues and we will reply promptly.
+We provide examples of using Microsnoop for profiling single-cell (run_cyclops), fully-imaged (run_tissuenet), and batch-experiment  (run_bbbc021) images, corresponding data can be obtained at https://figshare.com/articles/dataset/Microsnoop_a_generalist_tool_for_the_unbiased_representation_of_heterogeneous_microscopy_images/22197607. You can follow these examples to build your own process. Any questions on the use of the software can be contacted via Issues and we will reply promptly.
 
 Steps to run Microsnoop on the example datasets:
 

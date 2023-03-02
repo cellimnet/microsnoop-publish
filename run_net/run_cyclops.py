@@ -58,7 +58,6 @@ class Dataset_cyclops(EvalProcedure):
 
 if __name__ == '__main__':
     dataset_dir = r'/Data1/files/example_datasets'  # Note：input the root dir of your data
-    # dataset_dir = r'/Data1'  # Note：if aws
 
     dataset_name = 'cyclops'
     output_dir = os.path.join(project_path, 'output')
@@ -82,7 +81,7 @@ if __name__ == '__main__':
         args.patch_size = int(re.findall(r"_patchSize-(.+?)_", checkpoint_path)[0])
     args.embed_dir = os.path.join(output_dir, 'embeddings', dataset_name)
 
-    data_loader = eval_dataset.load_data(dataset_path, gen_size=1024)  # Note: ’gen_size‘： depend on GPU memory
+    data_loader = eval_dataset.load_data(dataset_path, gen_size=1024)  # Note: ’gen_size‘： depend on CPU memory
     start_time = time.time()
     eval_dataset.extract_embeddings(dataset_name, data_loader, checkpoint_path, args, model_type=model_type,
                                     rsc_to_diam=1.0, rescale_to_input=False)

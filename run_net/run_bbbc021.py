@@ -190,7 +190,7 @@ class Dataset_bbbc021(EvalProcedure):
 
 
 if __name__ == '__main__':
-    dataset_dir = r'/Data2/datasets'  # Note：input the root dir of your data
+    dataset_dir = r'/Data1/files/example_datasets'  # Note：input the root dir of your data
 
     dataset_name = 'bbbc021'
     output_dir = os.path.join(project_path, 'output')
@@ -220,7 +220,7 @@ if __name__ == '__main__':
         data_loader = eval_dataset.load_data(dataset_path, gen_size=300,
                                              seg=seg, rsc_crop=True,
                                              sta=224, crop_to_sta=False,
-                                             rsc_crop_ratio=2)  # Note: ’gen_size‘： depend on GPU memory
+                                             rsc_crop_ratio=2)  # Note: ’gen_size‘： depend on CPU memory
         start_time = time.time()
         eval_dataset.extract_embeddings(dataset_name, data_loader, checkpoint_path, args, model_type=model_type,
                                         rsc_to_diam=1.0, rescale_to_input=False,

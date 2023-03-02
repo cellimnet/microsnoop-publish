@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b80fa52-921c-418e-b22f-d739e5d0e10c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_net/run_bbbc021.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_net/run_bbbc021.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_net/run_cyclops.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_net/run_cyclops.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_net/run_tissuenet.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_net/run_tissuenet.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,51 +48,7 @@
       <recent name="G:\Python\9-Project\3-cellmae\microsnoop-publish\run_net" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.run_cyclops">
-    <configuration name="run_consep" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="microsnoop-publish" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/paper_review" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/paper_review/run_consep.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="run_coos7" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="microsnoop-publish" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/paper_review" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/paper_review/run_coos7.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.run_tissuenet">
     <configuration name="run_cyclops" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="microsnoop-publish" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -97,34 +57,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/paper_review" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run_net" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/paper_review/run_cyclops.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="run_livecell" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="microsnoop-publish" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/paper_review" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/paper_review/run_livecell.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run_net/run_cyclops.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -141,12 +79,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/paper_review" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run_net" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/paper_review/run_tissuenet.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run_net/run_tissuenet.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -157,11 +95,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.run_cyclops" />
         <item itemvalue="Python.run_tissuenet" />
-        <item itemvalue="Python.run_livecell" />
-        <item itemvalue="Python.run_coos7" />
-        <item itemvalue="Python.run_consep" />
+        <item itemvalue="Python.run_cyclops" />
       </list>
     </recent_temporary>
   </component>
@@ -180,7 +115,7 @@
       <workItem from="1677666397507" duration="15000" />
       <workItem from="1677666724773" duration="8000" />
       <workItem from="1677669567088" duration="433000" />
-      <workItem from="1677675323472" duration="14423000" />
+      <workItem from="1677675323472" duration="16223000" />
     </task>
     <task id="LOCAL-00001" summary="update Chinese to English">
       <created>1676641742154</created>
@@ -350,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677738825616</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="update README.md">
+      <created>1677738953926</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1677738953926</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -380,11 +322,12 @@
     <SUITE FILE_PATH="coverage/microsnoop_publish$run_bbbc021__1_.coverage" NAME="run_bbbc021 (1) Coverage Results" MODIFIED="1677737205834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paper_review" />
     <SUITE FILE_PATH="coverage/microsnoop_publish$eval.coverage" NAME="eval Coverage Results" MODIFIED="1676188787213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microsnoop" />
     <SUITE FILE_PATH="coverage/microsnoop_publish$run_bbbc021.coverage" NAME="run_bbbc021 Coverage Results" MODIFIED="1677728505182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/run_net" />
-    <SUITE FILE_PATH="coverage/microsnoop_publish$run_tissuenet.coverage" NAME="run_tissuenet Coverage Results" MODIFIED="1677737380364" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paper_review" />
+    <SUITE FILE_PATH="coverage/microsnoop_publish$run_tissuenet.coverage" NAME="run_tissuenet Coverage Results" MODIFIED="1677739267379" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/run_net" />
     <SUITE FILE_PATH="coverage/microsnoop_publish$run_bbbc048.coverage" NAME="run_bbbc048 Coverage Results" MODIFIED="1677737218105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paper_review" />
     <SUITE FILE_PATH="coverage/microsnoop_publish$run_coos7.coverage" NAME="run_coos7 Coverage Results" MODIFIED="1677737253961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paper_review" />
     <SUITE FILE_PATH="coverage/microsnoop_publish$run_livecell.coverage" NAME="run_livecell Coverage Results" MODIFIED="1677737277723" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paper_review" />
-    <SUITE FILE_PATH="coverage/microsnoop_publish$run_cyclops.coverage" NAME="run_cyclops Coverage Results" MODIFIED="1677737524381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paper_review" />
+    <SUITE FILE_PATH="coverage/microsnoop_publish$run_cyclops.coverage" NAME="run_cyclops Coverage Results" MODIFIED="1677739244657" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/run_net" />
     <SUITE FILE_PATH="coverage/microsnoop_publish$run_consep.coverage" NAME="run_consep Coverage Results" MODIFIED="1677737250052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/paper_review" />
+    <SUITE FILE_PATH="coverage/microsnoop_publish$run_cyclops__1_.coverage" NAME="run_cyclops (1) Coverage Results" MODIFIED="1677739229042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/run_net" />
   </component>
 </project>
