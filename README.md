@@ -1,10 +1,13 @@
 # Microsnoop
 
-A generalist tool for the unbiased representation of heterogeneous microscopy images
+Microsnoop: A Generalized Tool for Unbiased Representation of Diverse Microscopy Images
+
+### Citation ###
+Our article of Microsnoop is under review, if you use any code of our project, please cite the bioRxiv version https://doi.org/10.1101/2023.02.25.530004.
 
 ### **Description**<img src="./logo.svg" width="280" title="Microsnoop" alt="Microsnoop" align="right" vspace = "10">
 
-Automated and accurate profiling of microscopy images from small-scale to high-throughput is becoming an essential procedure in basic and applied biological research. Here, we present Microsnoop, a novel deep learning-based representation tool trained on large-scale microscopy images using masked self-supervised learning, which eliminates the need for manual annotation. Microsnoop is able to unbiasedly profile a wide range of complex and heterogeneous images, including single-cell, fully-imaged and batch-experiment data. We evaluated the performance of Microsnoop using seven high-quality datasets, containing over 358,000 images and 1,270,000 single cells with varying resolutions and channels from cellular organelles to tissues. Our results demonstrate Microsnoop's robustness and state-of-the-art performance in all biological applications, outperforming previous generalist and even custom algorithms. Furthermore, we presented its potential contribution for multi-modal studies. Microsnoop is highly inclusive of GPU and CPU capabilities, and can be freely and easily deployed on local or cloud computing platforms.
+Microscopy image profiling is becoming increasingly important in biological research. Microsnoop is a new deep learning-based representation tool that has been trained on large-scale microscopy images using masked self-supervised learning, eliminating the need for manual annotation. Microsnoop can unbiasedly profile a wide range of complex and heterogeneous images, including single-cell, fully imaged, and batch-experiment data. Its performance was evaluated on seven high-quality datasets, containing over 358,000 images and 1,270,000 single cells with varying resolutions and channels from cellular organelles to tissues. The results show that Microsnoop outperforms previous generalist and even custom algorithms, demonstrating its robustness and state-of-the-art performance in all biological applications. Furthermore, Microsnoop can contribute to multi-modal studies and is highly inclusive of GPU and CPU capabilities. It can be easily and freely deployed on local or cloud computing platforms.
 
 ### Overview of Microsnoop<img src="./overview.png" width="850" title="Overview of Microsnoop" alt="Overview of Microsnoop" align="left">
 
