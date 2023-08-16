@@ -61,7 +61,7 @@ Microscopy image profiling is becoming increasingly important in biological rese
 | -------- | -------- | --------- | ------- | ------- |
 | 20220904 | 98.08    | 96.64     | 100     | 99.35   |
 
-#### batch-experiment datasets
+#### Batch-experiment datasets
 
 | Version  | BBBC021-NSC | BBBC021-NSCB | RxRx19a |
 | -------- | ----------- | ------------ | ------- |
