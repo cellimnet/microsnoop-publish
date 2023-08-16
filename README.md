@@ -47,6 +47,28 @@ Microscopy image profiling is becoming increasingly important in biological rese
 
 **Fig. 1 | Design of Microsnoop for microscopy image representation. a,** Schematic of the learning process. (i) Example of the four main category images are shown. The channels range from cellular organelles to tissues. (ii) A masked self-supervised learning strategy was employed and only images are required for training without additional manual annotation. One-channel masked images were set as the input and the Encoder- Decoder were required to reconstruct the original images. **b,** At test time, (i) Example images from various downstream tasks are shown, with different resolutions, number of channels and image types. These microscopy images are categorized into 3 types to ensure the broad coverage of image profiling needs. (ii) Application of Microsnoop. Each batch of images is fed into the pre-trained encoder, and the output smallest convolutional maps are processed by average pooling. Then, all extracted embeddings are processed according to different profiling tasks. The potential downstream analyses of our generalist representation tool are shown in the panel.
 
+### Benchmark
+
+#### Single-cell datasets
+
+| Version  | COOS7 Test 1 | COOS7 Test 2 | COOS7 Test 3 | COOS7 Test 4 | CYCLoPs | CoNSeP | BBBC048-5 | BBBC048-7 |
+| -------- | ------------ | ------------ | ------------ | ------------ | ------- | ------ | --------- | --------- |
+| 20220904 | 97.25        | 97.19        | 89.72        | 96.24        | 75.94   | 48.86  | 99.00     | 85.62     |
+
+#### Full-field datasets
+
+| Version  | LIVECell | TissueNet | BBBC014 | CEM500K |
+| -------- | -------- | --------- | ------- | ------- |
+| 20220904 | 98.08    | 96.64     | 100     | 99.35   |
+
+#### batch-experiment datasets
+
+| Version  | BBBC021-NSC | BBBC021-NSCB | RxRx19a |
+| -------- | ----------- | ------------ | ------- |
+| 20220904 | 97.09       | 96.74        | 98.68   |
+
+
+
 ### System requirements
 
 **Operating system:** It has been tested on Ubuntu. Theoretically, it can work on any system that can run Python.
