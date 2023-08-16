@@ -49,6 +49,8 @@ Microscopy image profiling is becoming increasingly important in biological rese
 
 ### Benchmark
 
+We will regularly retrain and reevaluate the model on more community-contributed data to ensure that a consistent improvement of Microsnoop.
+
 #### Single-cell datasets
 
 | Version  | COOS7 Test 1 | COOS7 Test 2 | COOS7 Test 3 | COOS7 Test 4 | CYCLoPs | CoNSeP | BBBC048-5 | BBBC048-7 |
@@ -66,8 +68,6 @@ Microscopy image profiling is becoming increasingly important in biological rese
 | Version  | BBBC021-NSC | BBBC021-NSCB | RxRx19a |
 | -------- | ----------- | ------------ | ------- |
 | 20220904 | 97.09       | 96.74        | 98.68   |
-
-
 
 ### System requirements
 
