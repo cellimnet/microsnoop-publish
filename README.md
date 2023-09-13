@@ -9,7 +9,7 @@ Our article of Microsnoop is under review, if you use any code of our project, p
 
 Automated and accurate profiling of microscopy images from small-scale to high-throughput is becoming an essential procedure in basic and applied biological research. Here, we present Microsnoop, a novel deep learning-based representation tool trained on large-scale microscopy images using masked self-supervised learning. Microsnoop can reliably profile a wide range of complex and heterogeneous images, including single-cell, full-field, and batch-experiment data. Its performance was evaluated on ten high-quality datasets, containing over 2,230,000 images with varying resolutions and channels from cellular organelles to tissues. The results demonstrated its robust and state-of-the-art microscopy image representation ability, surpassing previous generalist and even several custom algorithms. It can be integrated with other excellent pipelines to contribute to more areas, such as super-resolution histopathology image analysis and multi-modal studies. Furthermore, it adapts to changing hardware capabilities and can be easily and freely deployed on local or cloud computing platforms.
 
-### Overview of Microsnoop<img src="./overview.png" width="850" title="Overview of Microsnoop" alt="Overview of Microsnoop" align="left">
+### Overview of Microsnoop<img src="./overview_new.png" width="850" title="Overview of Microsnoop" alt="Overview of Microsnoop" align="left">
 
 
 
@@ -135,8 +135,9 @@ Steps to run Microsnoop on the example datasets:
    inds = embeddings_file['inds'][:]
    ```
    
+
 The path of these output embeddings is in folder 'output/embeddings'.
-   
+
 6. The run time for run the example scripts on our device (CPU: 192GB, GPU: NVIDIA GeForce RTX 3090) is:
 
    | Script           | Time    | batch_size | gen_size |
