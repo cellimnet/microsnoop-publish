@@ -1,15 +1,17 @@
 # Microsnoop
 
-Microsnoop: A Generalized Tool for Unbiased Representation of Diverse Microscopy Images
+Microsnoop: a generalist tool for microscopy image representation
 
 ### Citation ###
 Our article of Microsnoop is under review, if you use any code of our project, please cite the bioRxiv version https://doi.org/10.1101/2023.02.25.530004.
 
 ### **Description**<img src="./logo.svg" width="280" title="Microsnoop" alt="Microsnoop" align="right" vspace = "10">
 
-Microscopy image profiling is becoming increasingly important in biological research. Microsnoop is a new deep learning-based representation tool that has been trained on large-scale microscopy images using masked self-supervised learning, eliminating the need for manual annotation. Microsnoop can unbiasedly profile a wide range of complex and heterogeneous images, including single-cell, fully imaged, and batch-experiment data. Its performance was evaluated on seven high-quality datasets, containing over 358,000 images and 1,270,000 single cells with varying resolutions and channels from cellular organelles to tissues. The results show that Microsnoop outperforms previous generalist and even custom algorithms, demonstrating its robustness and state-of-the-art performance in all biological applications. Furthermore, Microsnoop can contribute to multi-modal studies and is highly inclusive of GPU and CPU capabilities. It can be easily and freely deployed on local or cloud computing platforms.
+Automated and accurate profiling of microscopy images from small-scale to high-throughput is becoming an essential procedure in basic and applied biological research. Here, we present Microsnoop, a novel deep learning-based representation tool trained on large-scale microscopy images using masked self-supervised learning. Microsnoop can reliably profile a wide range of complex and heterogeneous images, including single-cell, full-field, and batch-experiment data. Its performance was evaluated on ten high-quality datasets, containing over 2,230,000 images with varying resolutions and channels from cellular organelles to tissues. The results demonstrated its robust and state-of-the-art microscopy image representation ability, surpassing previous generalist and even several custom algorithms. It can be integrated with other excellent pipelines to contribute to more areas, such as super-resolution histopathology image analysis and multi-modal studies. Furthermore, it adapts to changing hardware capabilities and can be easily and freely deployed on local or cloud computing platforms.
 
 ### Overview of Microsnoop<img src="./overview.png" width="850" title="Overview of Microsnoop" alt="Overview of Microsnoop" align="left">
+
+
 
 
 
@@ -49,7 +51,7 @@ Microscopy image profiling is becoming increasingly important in biological rese
 
 ### Benchmark
 
-We will regularly retrain and reevaluate the model on more community-contributed data to ensure that a consistent improvement of Microsnoop.
+We will regularly retrain and reevaluate the model on more community-contributed data to ensure a consistent improvement of Microsnoop.
 
 #### Single-cell datasets
 
@@ -92,7 +94,7 @@ A configured Amazon Machine Image (AMI) is available at Community AMIs. You can 
 
 ### Usage
 
-We provide examples of using Microsnoop for profiling single-cell (run_cyclops), fully-imaged (run_tissuenet), and batch-experiment  (run_bbbc021) images, corresponding data can be obtained at https://figshare.com/articles/dataset/Microsnoop_a_generalist_tool_for_the_unbiased_representation_of_heterogeneous_microscopy_images/22197607. You can follow these examples to build your own process. Any questions on the use of the software can be contacted via Issues and we will reply promptly.
+We provide examples of using Microsnoop for profiling single-cell (run_cyclops), full-field (run_tissuenet), and batch-experiment  (run_bbbc021) images, corresponding data can be obtained at https://figshare.com/articles/dataset/Microsnoop_a_generalist_tool_for_the_unbiased_representation_of_heterogeneous_microscopy_images/22197607. You can follow these examples to build your own process. Any questions on the use of the software can be contacted via Issues and we will reply promptly.
 
 Steps to run Microsnoop on the example datasets:
 
@@ -131,11 +133,10 @@ Steps to run Microsnoop on the example datasets:
    embeddings_file = h5py.File(embed_path)
    embeddings = embeddings_file['embeddings'][:]
    inds = embeddings_file['inds'][:]
-   chans = embeddings_file['chans'][:]
    ```
-
-   The path of these output embeddings is in folder 'output/embeddings'.
-
+   
+The path of these output embeddings is in folder 'output/embeddings'.
+   
 6. The run time for run the example scripts on our device (CPU: 192GB, GPU: NVIDIA GeForce RTX 3090) is:
 
    | Script           | Time    | batch_size | gen_size |

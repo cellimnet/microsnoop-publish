@@ -119,7 +119,7 @@ class EvalProcedure:
         """
         # set distributed mode
         print('Now processing:', dataset_name)
-        args.ngpu = torch.cuda.device_count()
+        args.ngpu = torch.cuda.device_count()  # 1
         args.world_size = args.ngpu * args.nnode
         print(">>>> Totally GPU Devices: ", str(args.world_size))
 
