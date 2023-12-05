@@ -136,7 +136,7 @@ Steps to run Microsnoop on the example datasets:
    ```
    
 
-The path of these output embeddings is in folder 'output/embeddings'.
+  The path of these output embeddings is in folder 'output/embeddings'.
 
 6. The time for running the example scripts on our device (CPU: 192GB, GPU: NVIDIA GeForce RTX 3090) is:
 
