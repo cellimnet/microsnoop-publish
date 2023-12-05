@@ -47,7 +47,7 @@ Automated and accurate profiling of microscopy images from small-scale to high-t
 
 
 
-**Fig. 1 | Design of Microsnoop for microscopy image representation. a,** Schematic of the learning process. (i) Example of the four main category images are shown. The channels range from cellular organelles to tissues. (ii) A masked self-supervised learning strategy was employed and only images are required for training without additional manual annotation. One-channel masked images were set as the input and the Encoder- Decoder were required to reconstruct the original images. **b,** At test time, (i) Example images from various downstream tasks are shown, with different resolutions, number of channels and image types. These microscopy images are categorized into 3 types to ensure the broad coverage of image profiling needs. (ii) Application of Microsnoop. Each batch of images is fed into the pre-trained encoder, and the output smallest convolutional maps are processed by average pooling. Then, all extracted embeddings are processed according to different profiling tasks. The potential downstream analyses of our generalist representation tool are shown in the panel.
+**Fig. 1 | Design of Microsnoop for microscopy image representation. A,** Schematic of the learning process. (i) Example of the four main category images are shown. The channels range from cellular organelles to tissues. (ii) A masked self-supervised learning strategy was employed and only images are required for training without additional manual annotation. One-channel masked images were set as the input and the Encoder- Decoder were required to reconstruct the original images. **B,** At test time, (i) Example images from various downstream tasks are shown, with different resolutions, number of channels and image types. These microscopy images are categorized into 3 types to ensure the broad coverage of image profiling needs. (ii) Application of Microsnoop. Each batch of images is fed into the pre-trained encoder, and the output smallest convolutional maps are processed by average pooling. Then, all extracted embeddings are processed according to different profiling tasks. The potential downstream analyses of our generalist representation tool are shown in the panel.
 
 ### Benchmark
 
@@ -138,7 +138,7 @@ Steps to run Microsnoop on the example datasets:
 
 The path of these output embeddings is in folder 'output/embeddings'.
 
-6. The run time for run the example scripts on our device (CPU: 192GB, GPU: NVIDIA GeForce RTX 3090) is:
+6. The time for running the example scripts on our device (CPU: 192GB, GPU: NVIDIA GeForce RTX 3090) is:
 
    | Script           | Time    | batch_size | gen_size |
    | ---------------- | ------- | ---------- | -------- |
