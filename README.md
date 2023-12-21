@@ -3,7 +3,7 @@
 Microsnoop: a generalist tool for microscopy image representation
 
 ### Citation ###
-Our article of Microsnoop is under review, if you use any code of our project, please cite the bioRxiv version https://doi.org/10.1101/2023.02.25.530004.
+Our article of Microsnoop has been published on The Innovation. if you use any code of our project, please cite the published version.
 
 ### **Description**<img src="./logo.svg" width="280" title="Microsnoop" alt="Microsnoop" align="right" vspace = "10">
 
