@@ -87,12 +87,13 @@ This project uses the h5py, numpy, opencv-python, scipy, pandas, kneed, faiss, t
 
 A configured Amazon Machine Image (AMI) is available at Community AMIs. You can follow the following steps to quickly deploy Microsnoop for microscopy image analysis.
 
-1. Launch instance from AMI: search and choose our AMI
-   -For china users, choose "Microsnoop-publish-20231224" in region "cn-northwest-1".
+1. Launch instance from AMI: search and choose our AMI:
+
+    -For china users, choose "Microsnoop-publish-20231224" in region "cn-northwest-1".
    -For international users, choose "Microsnoop-publish-20231224" in region "us-east-1".
-3. Choose suitable hardware, e.g. CPU, GPU, storage.
-4. Configure SSH: the name of our configured env is pytorch_latest_p37.
-5. Map your local project to the deployment project.
+2. Choose suitable hardware, e.g. CPU, GPU, storage.
+3. Configure SSH: the name of our configured env is pytorch_latest_p37.
+4. Map your local project to the deployment project.
 
 ### Usage
 
