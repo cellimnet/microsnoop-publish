@@ -93,7 +93,7 @@ A configured Amazon Machine Image (AMI) is available at Community AMIs. You can 
 
 1. Launch instance from AMI: 
 
-   -For chinese users, search and choose our AMI: "Microsnoop-publish-20231224" in region "cn-northwest-1".
+   -For Chinese users, search and choose our AMI: "Microsnoop-publish-20231224" in region "cn-northwest-1".
 
    -For international users, search and choose our AMI: "Microsnoop-publish-20231224" in region "us-east-1".
 2. Choose suitable hardware, e.g. CPU, GPU, storage.
