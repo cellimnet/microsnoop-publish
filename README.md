@@ -2,7 +2,7 @@
 
 Microsnoop: a generalist tool for microscopy image representation
 
-### <span style="color: #007BFF;">Attention</span> ###
+### Announcement ###
 Recently, we have found it strange that some published papers show poor performance of Microsnoop, please read our articles carefully and make sure that you have reproduced the details of Microsnoop correctly, if in doubt, feel free to ask us questions via issues. We can provide embeddings of any dataset mentioned in the article for researchers to benchmark.
 
 ### Citation ###
