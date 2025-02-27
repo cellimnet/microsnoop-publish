@@ -3,7 +3,7 @@
 Microsnoop: a generalist tool for microscopy image representation
 
 ### Announcement ###
-Recently, we have found it strange that some published papers show poor performance of Microsnoop, please read our articles carefully and make sure that you have reproduced the details of Microsnoop correctly, if in doubt, feel free to ask us questions via issues. We can provide embeddings of any dataset mentioned in the article for researchers to benchmark.
+Recently, we have found it strange that some published papers show poor performance of Microsnoop, please read our paper carefully and make sure that you have reproduced the details of Microsnoop correctly, if in doubt, feel free to ask us questions via Issues. We can provide embeddings of any dataset mentioned in the article for researchers to benchmark.
 
 ### Citation ###
 Our article of Microsnoop has been published on **The Innovation**. If you use any code of our project, please cite the published version (https://doi.org/10.1016/j.xinn.2023.100541). 
